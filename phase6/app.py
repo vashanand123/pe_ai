@@ -162,8 +162,9 @@ def main() -> None:
                 for event in turn["events"]:
                     render_event(event)
 
+    typed = st.chat_input("Ask about the portfolio…")
     queued = st.session_state.pop("queued_question", None)
-    prompt = queued or st.chat_input("Ask about the portfolio…")
+    prompt = queued or typed
     if prompt:
         st.session_state.history.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
