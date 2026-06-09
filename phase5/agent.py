@@ -45,13 +45,22 @@ def tool_list_funds() -> list[dict]:
     con = _duck()
     try:
         rows = con.execute(
-            "SELECT fund_id, name, vintage_year, strategy, status FROM funds ORDER BY fund_id"
+            "SELECT fund_id, name, vintage_year, strategy, status, inception_date, target_size_musd "
+            "FROM funds ORDER BY fund_id"
         ).fetchall()
     finally:
         con.close()
     return [
-        {"fund_id": fid, "name": n, "vintage_year": v, "strategy": s, "status": st}
-        for fid, n, v, s, st in rows
+        {
+            "fund_id": fid,
+            "name": n,
+            "vintage_year": v,
+            "strategy": s,
+            "status": st,
+            "inception_date": str(inc),
+            "target_size_musd": float(tgt),
+        }
+        for fid, n, v, s, st, inc, tgt in rows
     ]
 
 
@@ -158,7 +167,7 @@ def tool_search_lpas(question: str, fund: str | None = None, top_k: int = 4) -> 
 TOOLS = [
     {
         "name": "list_funds",
-        "description": "List all funds with their vintage, strategy, and status. Call this first if you don't know what funds exist.",
+        "description": "List all funds with vintage_year, strategy, status, inception_date (formation/first-close date), and target_size_musd. Call this first if you don't know what funds exist.",
         "input_schema": {"type": "object", "properties": {}, "required": []},
     },
     {
@@ -254,7 +263,8 @@ Approach:
 1. Plan briefly what facts you need before calling tools.
 2. Call list_funds first if you don't know what funds exist.
 3. Use the right tool for the right question — fund data for performance, search_lpas for legal/governance.
-4. When you have enough information, write the final answer.
+4. If a structured tool doesn't return what you need, ALWAYS try search_lpas before answering "I don't have that data" — the LPA documents cover fund terms, dates, governance, and many details not in the structured tables.
+5. When you have enough information, write the final answer.
 
 Standards for the final answer:
 - Lead with the verdict in one line, then the supporting evidence.

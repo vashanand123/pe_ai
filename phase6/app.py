@@ -34,13 +34,21 @@ st.caption("Expert PE fund AI assistant — DuckDB + ChromaDB + Claude")
 def init_state() -> None:
     if "history" not in st.session_state:
         st.session_state.history = []
+    if "agent_messages" not in st.session_state:
+        st.session_state.agent_messages = []
     if "client" not in st.session_state:
         st.session_state.client = anthropic.Anthropic()
 
 
 def run_agent_streaming(question: str, max_iterations: int = 20):
-    """Drive the agent loop, yielding events for the UI to render."""
-    messages = [{"role": "user", "content": question}]
+    """Drive the agent loop, yielding events for the UI to render.
+
+    Conversation history is kept in st.session_state.agent_messages so
+    follow-up questions can reference prior turns (pronouns, "those funds",
+    "what about Fund II", etc.).
+    """
+    st.session_state.agent_messages.append({"role": "user", "content": question})
+    messages = st.session_state.agent_messages
     client = st.session_state.client
 
     for i in range(max_iterations):
@@ -57,11 +65,11 @@ def run_agent_streaming(question: str, max_iterations: int = 20):
             if block.type == "text" and block.text.strip():
                 yield {"kind": "text", "text": block.text}
 
+        messages.append({"role": "assistant", "content": response.content})
+
         if response.stop_reason == "end_turn":
             yield {"kind": "done", "iterations": i + 1, "usage": response.usage}
             return
-
-        messages.append({"role": "assistant", "content": response.content})
 
         tool_results = []
         for block in response.content:
@@ -143,6 +151,7 @@ def main() -> None:
         st.markdown("---")
         if st.button("Clear conversation", use_container_width=True):
             st.session_state.history = []
+            st.session_state.agent_messages = []
             st.rerun()
 
     for turn in st.session_state.history:
