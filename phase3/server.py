@@ -40,7 +40,7 @@ def _conn() -> duckdb.DuckDBPyConnection:
 
 @mcp.tool
 def list_funds() -> list[dict]:
-    """List every fund with its vintage, strategy, and lifecycle status.
+    """List every fund with vintage, strategy, status, inception_date, and target_size_musd.
 
     Use this first when a user asks anything about the portfolio — it gives you
     the fund_id values you'll need to call the more detailed tools.
@@ -48,13 +48,22 @@ def list_funds() -> list[dict]:
     con = _conn()
     try:
         rows = con.execute(
-            "SELECT fund_id, name, vintage_year, strategy, status FROM funds ORDER BY fund_id"
+            "SELECT fund_id, name, vintage_year, strategy, status, inception_date, target_size_musd "
+            "FROM funds ORDER BY fund_id"
         ).fetchall()
     finally:
         con.close()
     return [
-        {"fund_id": fid, "name": name, "vintage_year": v, "strategy": s, "status": st}
-        for fid, name, v, s, st in rows
+        {
+            "fund_id": fid,
+            "name": name,
+            "vintage_year": v,
+            "strategy": s,
+            "status": st,
+            "inception_date": str(inc),
+            "target_size_musd": float(tgt),
+        }
+        for fid, name, v, s, st, inc, tgt in rows
     ]
 
 
@@ -183,6 +192,100 @@ def run_waterfall_scenario(
     return result.__dict__
 
 
+@mcp.tool
+def get_capital_call_history(fund_id: int) -> list[dict]:
+    """Get every capital call for a fund (call_date, amount_musd, purpose).
+
+    Use for questions about deployment pacing, capital pacing, draw schedule, or
+    any 'when was X called' question.
+    """
+    con = _conn()
+    try:
+        rows = con.execute(
+            "SELECT call_id, call_date, amount_musd, purpose FROM capital_calls "
+            "WHERE fund_id = ? ORDER BY call_date",
+            [fund_id],
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        {"call_id": cid, "call_date": str(cd), "amount_musd": float(amt), "purpose": p}
+        for cid, cd, amt, p in rows
+    ]
+
+
+@mcp.tool
+def get_distribution_history(fund_id: int) -> list[dict]:
+    """Get every distribution for a fund (dist_date, amount_musd, type).
+
+    Use for questions about distribution pattern, DPI build, or any 'when did the
+    fund return capital' question.
+    """
+    con = _conn()
+    try:
+        rows = con.execute(
+            "SELECT dist_id, dist_date, amount_musd, type FROM distributions "
+            "WHERE fund_id = ? ORDER BY dist_date",
+            [fund_id],
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        {"dist_id": did, "dist_date": str(dd), "amount_musd": float(amt), "type": t}
+        for did, dd, amt, t in rows
+    ]
+
+
+@mcp.tool
+def get_nav_history(fund_id: int) -> list[dict]:
+    """Get the historical quarterly NAV snapshots for a fund.
+
+    Use for questions about NAV trend, markup/markdown trajectory, or
+    quarter-over-quarter valuation moves.
+    """
+    con = _conn()
+    try:
+        rows = con.execute(
+            "SELECT snapshot_id, snapshot_date, nav_musd FROM nav_snapshots "
+            "WHERE fund_id = ? ORDER BY snapshot_date",
+            [fund_id],
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        {"snapshot_id": sid, "snapshot_date": str(sd), "nav_musd": float(nav)}
+        for sid, sd, nav in rows
+    ]
+
+
+@mcp.tool
+def get_waterfall_terms(fund_id: int) -> dict:
+    """Get a fund's waterfall structure.
+
+    Returns waterfall_type (European/American), preferred_return_pct,
+    gp_catchup_pct, and gp_carry_pct. Use to answer 'what's the pref?',
+    'what's the carry?', or to explain how distributions split.
+    """
+    con = _conn()
+    try:
+        row = con.execute(
+            "SELECT waterfall_type, preferred_return_pct, gp_catchup_pct, gp_carry_pct "
+            "FROM waterfall_terms WHERE fund_id = ?",
+            [fund_id],
+        ).fetchone()
+    finally:
+        con.close()
+    if row is None:
+        return {"error": f"No waterfall terms found for fund {fund_id}"}
+    wf_type, pref, catchup, carry = row
+    return {
+        "waterfall_type": wf_type,
+        "preferred_return_pct": float(pref),
+        "gp_catchup_pct": float(catchup),
+        "gp_carry_pct": float(carry),
+    }
+
+
 mcp_app = mcp.http_app(path="/")
 app = FastAPI(title="pe-ai MCP server", lifespan=mcp_app.lifespan)
 app.mount("/mcp", mcp_app)
@@ -190,7 +293,7 @@ app.mount("/mcp", mcp_app)
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "service": "pe-ai", "tools": 5}
+    return {"status": "ok", "service": "pe-ai", "tools": 9}
 
 
 if __name__ == "__main__":

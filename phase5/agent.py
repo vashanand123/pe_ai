@@ -146,6 +146,75 @@ def tool_run_waterfall_scenario(fund_id: int, hypothetical_total_distributed_mus
     return waterfall_for_fund(fund_id, hypothetical_total_distributed_musd).__dict__
 
 
+def tool_get_capital_call_history(fund_id: int) -> list[dict]:
+    con = _duck()
+    try:
+        rows = con.execute(
+            "SELECT call_id, call_date, amount_musd, purpose FROM capital_calls "
+            "WHERE fund_id = ? ORDER BY call_date",
+            [fund_id],
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        {"call_id": cid, "call_date": str(cd), "amount_musd": float(amt), "purpose": p}
+        for cid, cd, amt, p in rows
+    ]
+
+
+def tool_get_distribution_history(fund_id: int) -> list[dict]:
+    con = _duck()
+    try:
+        rows = con.execute(
+            "SELECT dist_id, dist_date, amount_musd, type FROM distributions "
+            "WHERE fund_id = ? ORDER BY dist_date",
+            [fund_id],
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        {"dist_id": did, "dist_date": str(dd), "amount_musd": float(amt), "type": t}
+        for did, dd, amt, t in rows
+    ]
+
+
+def tool_get_nav_history(fund_id: int) -> list[dict]:
+    con = _duck()
+    try:
+        rows = con.execute(
+            "SELECT snapshot_id, snapshot_date, nav_musd FROM nav_snapshots "
+            "WHERE fund_id = ? ORDER BY snapshot_date",
+            [fund_id],
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        {"snapshot_id": sid, "snapshot_date": str(sd), "nav_musd": float(nav)}
+        for sid, sd, nav in rows
+    ]
+
+
+def tool_get_waterfall_terms(fund_id: int) -> dict:
+    con = _duck()
+    try:
+        row = con.execute(
+            "SELECT waterfall_type, preferred_return_pct, gp_catchup_pct, gp_carry_pct "
+            "FROM waterfall_terms WHERE fund_id = ?",
+            [fund_id],
+        ).fetchone()
+    finally:
+        con.close()
+    if row is None:
+        return {"error": f"No waterfall terms found for fund {fund_id}"}
+    wf_type, pref, catchup, carry = row
+    return {
+        "waterfall_type": wf_type,
+        "preferred_return_pct": float(pref),
+        "gp_catchup_pct": float(catchup),
+        "gp_carry_pct": float(carry),
+    }
+
+
 def tool_search_lpas(question: str, fund: str | None = None, top_k: int = 4) -> list[dict]:
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
     collection = client.get_collection(COLLECTION)
@@ -216,6 +285,55 @@ TOOLS = [
         },
     },
     {
+        "name": "get_capital_call_history",
+        "description": (
+            "Get every capital call for a fund (call_date, amount_musd, purpose). "
+            "Use for questions about deployment pacing, capital pacing, draw schedule, or any 'when was X called' question."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"fund_id": {"type": "integer"}},
+            "required": ["fund_id"],
+        },
+    },
+    {
+        "name": "get_distribution_history",
+        "description": (
+            "Get every distribution for a fund (dist_date, amount_musd, type). "
+            "Use for questions about distribution pattern, DPI build, or any 'when did the fund return capital' question."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"fund_id": {"type": "integer"}},
+            "required": ["fund_id"],
+        },
+    },
+    {
+        "name": "get_nav_history",
+        "description": (
+            "Get the historical quarterly NAV snapshots for a fund (snapshot_date, nav_musd). "
+            "Use for questions about NAV trend, markup/markdown trajectory, or quarter-over-quarter valuation moves."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"fund_id": {"type": "integer"}},
+            "required": ["fund_id"],
+        },
+    },
+    {
+        "name": "get_waterfall_terms",
+        "description": (
+            "Get a fund's waterfall structure: type (European/American), preferred_return_pct, "
+            "gp_catchup_pct, gp_carry_pct. Use to answer 'what's the pref rate?', 'what's the carry?', "
+            "or to explain how distributions split between LPs and the GP."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"fund_id": {"type": "integer"}},
+            "required": ["fund_id"],
+        },
+    },
+    {
         "name": "search_lpas",
         "description": (
             "Semantic search over the LPA document corpus. Use for legal/governance questions "
@@ -246,6 +364,10 @@ TOOL_FNS = {
     "run_waterfall_scenario": lambda inp: tool_run_waterfall_scenario(
         inp["fund_id"], inp["hypothetical_total_distributed_musd"]
     ),
+    "get_capital_call_history": lambda inp: tool_get_capital_call_history(inp["fund_id"]),
+    "get_distribution_history": lambda inp: tool_get_distribution_history(inp["fund_id"]),
+    "get_nav_history": lambda inp: tool_get_nav_history(inp["fund_id"]),
+    "get_waterfall_terms": lambda inp: tool_get_waterfall_terms(inp["fund_id"]),
     "search_lpas": lambda inp: tool_search_lpas(inp["question"], inp.get("fund")),
 }
 
