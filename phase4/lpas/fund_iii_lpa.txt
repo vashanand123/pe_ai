@@ -1,0 +1,56 @@
+# LIMITED PARTNERSHIP AGREEMENT — FUND III, L.P.
+
+## 1. Fund Identification
+Fund III, L.P. is a Delaware limited partnership formed on January 10, 2026. The General Partner is Fund III GP, LLC. The Fund's investment objective is to acquire majority-interest positions in growth-stage buyout targets in software, AI infrastructure, healthcare technology, and tech-enabled industrial services.
+
+## 2. Fund Term
+The Fund has an initial term of ten (10) years from the Final Closing Date, with up to two (2) one-year extensions at the discretion of the General Partner subject to Advisory Committee approval. The Investment Period is four (4) years from the Final Closing Date, shorter than prior funds to reflect a more concentrated deployment schedule.
+
+## 3. Capital Commitments
+Aggregate capital commitments to the Fund total $750 million. The minimum Limited Partner commitment is $15 million. The General Partner has committed not less than two percent (2%) of total capital. The Fund employs a single-close structure; no subsequent closes are contemplated.
+
+## 4. Management Fee
+During the Investment Period, the Management Fee is one and three quarters percent (1.75%) per annum of aggregate commitments, payable quarterly in advance. Following the Investment Period, the Management Fee steps down to one and a half percent (1.50%) per annum of invested capital in active portfolio companies — a reduction from prior funds.
+
+Limited Partners committing $75 million or more receive a Management Fee break of thirty-seven and a half (37.5) basis points.
+
+One hundred percent (100%) of transaction fees, monitoring fees, and break-up fees received by the Manager offset the Management Fee.
+
+## 5. Distribution Waterfall
+Distributions are applied as follows:
+(a) First, 100% to Limited Partners until they have received aggregate distributions equal to their Capital Contributions;
+(b) Second, 100% to Limited Partners until they have received an annual preferred return of eight percent (8%) compounded;
+(c) Third, 100% to the General Partner until the GP has received twenty percent (20%) of total profits distributed;
+(d) Thereafter, eighty percent (80%) to Limited Partners and twenty percent (20%) to the General Partner.
+
+European whole-fund waterfall consistent with Fund I and Fund II. There is no clawback provision because no carried interest is paid until the entire fund has returned capital plus the preferred return.
+
+## 6. Recycling Provisions
+The General Partner may recycle proceeds returned within the first thirty-six (36) months following an investment, up to thirty percent (30%) of total commitments. This represents an expansion from prior funds in recognition of compressed investment timelines.
+
+## 7. Subscription Line Facility
+The Fund maintains a subscription line credit facility of up to fifteen percent (15%) of total commitments (reduced from Fund II's 20% in response to LP preference for less leverage on capital pacing). Interest expense is borne by the Fund and is not offset against the Management Fee.
+
+## 8. Investor Reporting
+Quarterly unaudited reports will be provided within thirty (30) days of quarter-end — a faster cadence than prior funds. Annual audited financial statements will be delivered within ninety (90) days of fiscal year-end. The General Partner commits to provide reports compliant with ILPA Reporting Standards v2.0 and all subsequently published standards.
+
+## 9. Advisory Committee
+A Limited Partner Advisory Committee composed of representatives from the eight largest Limited Partners by commitment will meet quarterly (more frequently than prior funds). The LPAC must pre-approve any related-party transaction exceeding five million dollars ($5M).
+
+## 10. Removal of General Partner
+For Cause removal requires a two-thirds (66.7%) vote of capital commitments. No-fault removal requires seventy-five percent (75%) of capital commitments and triggers a buyout payment equal to two (2) years of remaining management fees, further reduced from Fund II's three-year structure.
+
+## 11. ESG and DEI Commitments
+The Fund formally adopts the Principles for Responsible Investment (PRI) framework. Portfolio companies must adopt a written ESG policy within twelve (12) months of acquisition and report annually on Scope 1, 2, and material Scope 3 emissions, workforce diversity, and board composition. The Fund will not invest in fossil fuel extraction, thermal coal, controversial weapons, tobacco, gambling, or adult entertainment.
+
+## 12. AI Governance
+Recognizing the Fund's focus on AI infrastructure, all portfolio companies acquiring or deploying AI capabilities must adopt the Fund's AI Governance Standards covering data sourcing, model bias testing, customer data privacy, and human oversight requirements. The General Partner reserves the right to mandate third-party audits at the Fund's expense.
+
+## 13. Co-Investment Rights
+Limited Partners with commitments of $30 million or more have a right of first refusal on co-investment opportunities, allocated pro rata to commitment size, capped at three times their Fund III commitment. Co-investments will not bear Management Fees or Carried Interest.
+
+## 14. Default and Defaulting Partners
+Default provisions are consistent with prior funds. Interest on defaulted amounts accrues at fifteen percent (15%) per annum. The forfeiture cap on defaulting partner interests is increased to seventy-five percent (75%), up from fifty percent (50%) in Fund I.
+
+## 15. Side Letters
+Side letter terms covering economic provisions (Management Fee reductions, Carried Interest modifications) are subject to MFN treatment for Limited Partners committing $75 million or more (raised from Fund II's $50M threshold). All side letter terms are disclosed to the LPAC in summary form within thirty (30) days of execution.

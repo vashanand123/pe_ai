@@ -1,0 +1,44 @@
+services:
+  mcp-server:
+    build: .
+    image: pe-ai:latest
+    container_name: pe-ai-mcp
+    command: ["uv", "run", "python", "phase3/server.py"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  ui:
+    image: pe-ai:latest
+    container_name: pe-ai-ui
+    command:
+      - "uv"
+      - "run"
+      - "streamlit"
+      - "run"
+      - "phase6/app.py"
+      - "--server.address=0.0.0.0"
+      - "--server.port=8501"
+      - "--server.headless=true"
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  data:

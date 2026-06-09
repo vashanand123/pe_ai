@@ -1,0 +1,51 @@
+# LIMITED PARTNERSHIP AGREEMENT — FUND II, L.P.
+
+## 1. Fund Identification
+Fund II, L.P. is a Delaware limited partnership formed on March 1, 2022. The General Partner is Fund II GP, LLC. The Fund's investment objective is to acquire majority-interest equity positions in middle-market buyout targets, with a sector preference for software, healthcare technology, and tech-enabled services.
+
+## 2. Fund Term
+The Fund has an initial term of ten (10) years from the Final Closing Date, with up to two (2) one-year extensions at the discretion of the General Partner subject to Advisory Committee approval. The Investment Period is five (5) years from the Final Closing Date.
+
+## 3. Capital Commitments
+Aggregate capital commitments to the Fund total $500 million. The minimum Limited Partner commitment is $10 million, raised from the prior fund's $5 million threshold to reduce administrative burden. The General Partner has committed not less than two percent (2%) of total capital alongside Limited Partners.
+
+## 4. Management Fee
+During the Investment Period, the Management Fee is one and three quarters percent (1.75%) per annum of aggregate commitments, payable quarterly in advance. Following the Investment Period, the Management Fee steps down to one and three quarters percent (1.75%) per annum of invested capital in active portfolio companies. Limited Partners committing $50 million or more receive a Management Fee break of twenty-five (25) basis points.
+
+One hundred percent (100%) of transaction fees, monitoring fees, and break-up fees received by the Manager offset the Management Fee.
+
+## 5. Distribution Waterfall
+Distributions to investors are applied as follows:
+(a) First, 100% to Limited Partners until they have received aggregate distributions equal to their Capital Contributions;
+(b) Second, 100% to Limited Partners until they have received an annual preferred return of eight percent (8%) compounded on Capital Contributions;
+(c) Third, 100% to the General Partner as a Catch-Up until the GP has received twenty percent (20%) of total profits distributed;
+(d) Thereafter, eighty percent (80%) to Limited Partners and twenty percent (20%) to the General Partner.
+
+European-style whole-fund waterfall. No deal-by-deal carry distribution.
+
+## 6. Recycling Provisions
+The General Partner may recycle proceeds returned within the first twenty-four (24) months following an investment, up to twenty-five percent (25%) of total commitments. Recycled capital does not increase Limited Partner commitments.
+
+## 7. Subscription Line Facility
+The Fund maintains a subscription line credit facility of up to twenty percent (20%) of total commitments to bridge capital calls. Interest expense on the facility is borne by the Fund and is not offset against the Management Fee.
+
+## 8. Investor Reporting
+Quarterly unaudited reports will be provided within forty-five (45) days of quarter-end (improved from prior fund's 60 days). Annual audited financial statements will be delivered within ninety (90) days of fiscal year-end. The General Partner will also provide all reports specified by the ILPA Reporting Standards v2.0 effective Q1 2026.
+
+## 9. Advisory Committee
+A Limited Partner Advisory Committee composed of representatives from the seven largest Limited Partners by commitment will meet semi-annually. The LPAC must approve any related-party transaction exceeding two and a half million dollars ($2.5M).
+
+## 10. Removal of General Partner
+The Limited Partners may remove the General Partner for Cause by a two-thirds (66.7%) vote of capital commitments. Cause is defined as in Fund I. No-fault removal requires seventy-five percent (75%) of capital commitments and triggers a buyout payment equal to three (3) years of remaining management fees, reduced from Fund I's four-year structure.
+
+## 11. ESG and DEI Commitments
+The Fund commits to ESG integration across its investment process. Portfolio companies are required to provide annual ESG metrics covering Scope 1 and 2 emissions, workforce diversity, and board composition. The Fund will not invest in fossil fuel extraction, controversial weapons, gambling, or adult entertainment.
+
+## 12. Co-Investment Rights
+Limited Partners with commitments of $25 million or more have a right of first refusal on co-investment opportunities, allocated pro rata to commitment size. Co-investments will not bear Management Fees or Carried Interest.
+
+## 13. Default and Defaulting Partners
+Default provisions are substantially identical to Fund I, except interest on defaulted amounts accrues at fifteen percent (15%) per annum (up from twelve percent).
+
+## 14. Side Letters
+The General Partner may enter side letter agreements with individual Limited Partners providing supplementary terms. Material economic terms in side letters (Management Fee reductions, Carried Interest modifications, preferred information rights) are subject to "most-favored nations" treatment for Limited Partners committing $50 million or more.

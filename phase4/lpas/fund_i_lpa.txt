@@ -1,0 +1,46 @@
+# LIMITED PARTNERSHIP AGREEMENT — FUND I, L.P.
+
+## 1. Fund Identification
+Fund I, L.P. is a Delaware limited partnership formed on January 15, 2018. The General Partner is Fund I GP, LLC. The Fund's investment objective is to acquire controlling equity positions in middle-market buyout opportunities across software, healthcare, industrial, and consumer sectors.
+
+## 2. Fund Term
+The Fund has an initial term of twelve (12) years from the Final Closing Date, with up to two (2) one-year extensions at the discretion of the General Partner with Advisory Committee consent. The Investment Period is six (6) years from the Final Closing Date, during which the Fund may make new investments. After the Investment Period, the Fund may make follow-on investments only.
+
+## 3. Capital Commitments
+Aggregate capital commitments to the Fund total $300 million. The minimum commitment is $5 million, with the General Partner reserving discretion to accept lesser amounts. Capital is drawn pro rata in accordance with each Limited Partner's commitment percentage.
+
+## 4. Management Fee
+During the Investment Period, the Management Fee is two percent (2.0%) per annum of aggregate commitments, payable quarterly in advance. Following the Investment Period, the Management Fee steps down to two percent (2.0%) per annum of invested capital in active portfolio companies. One hundred percent (100%) of transaction fees, monitoring fees, and break-up fees received by the Manager will offset the Management Fee.
+
+## 5. Distribution Waterfall
+Distributions to investors will be applied in the following order:
+(a) First, 100% to Limited Partners until they have received aggregate distributions equal to their Capital Contributions;
+(b) Second, 100% to Limited Partners until they have received an annual preferred return of eight percent (8%) compounded on Capital Contributions;
+(c) Third, 100% to the General Partner until the General Partner has received twenty percent (20%) of total profits distributed (the "GP Catch-Up");
+(d) Thereafter, eighty percent (80%) to Limited Partners and twenty percent (20%) to the General Partner.
+
+This is a European-style ("whole-fund") waterfall. Carried interest is calculated only after all Limited Partners have received their Capital Contributions plus the Preferred Return.
+
+## 6. Recycling Provisions
+The General Partner may recycle proceeds returned within the first eighteen (18) months following an investment, up to twenty percent (20%) of total commitments. Recycled capital does not increase a Limited Partner's commitment.
+
+## 7. Investor Reporting
+Quarterly unaudited reports will be provided within sixty (60) days of quarter-end. Annual audited financial statements will be delivered within one hundred twenty (120) days of fiscal year-end. The General Partner will additionally provide ILPA-compliant Capital Account Statements, Performance Reports, and Fee & Expense Templates.
+
+## 8. Advisory Committee
+A Limited Partner Advisory Committee ("LPAC") composed of representatives from the five largest Limited Partners by commitment will meet semi-annually. The LPAC will be consulted on conflicts of interest, valuation matters, and term extensions.
+
+## 9. Removal of General Partner
+The Limited Partners may remove the General Partner for Cause by a vote of two-thirds (66.7%) of capital commitments. Cause includes fraud, willful misconduct, material breach uncured for thirty (30) days after written notice, or a court finding of gross negligence. No-fault removal requires seventy-five percent (75%) of capital commitments and incurs a buyout payment equal to four (4) years of remaining management fees.
+
+## 10. Transfer Restrictions
+Limited Partner interests are not freely transferable. Transfers require General Partner consent, which shall not be unreasonably withheld for transfers to affiliated entities. Transfers to competitors of the Fund or its portfolio companies are prohibited.
+
+## 11. ESG Commitments
+The Fund will not invest in companies whose primary business involves tobacco, controversial weapons, or thermal coal extraction. Portfolio companies are encouraged to adopt sustainability reporting consistent with SASB standards but compliance is not mandatory.
+
+## 12. Default and Defaulting Partners
+A Limited Partner who fails to fund a Capital Call within ten (10) Business Days of the Drawdown Notice will be deemed a Defaulting Partner. Remedies include forfeiture of up to fifty percent (50%) of the Defaulting Partner's interest, accelerated interest on the defaulted amount at twelve percent (12%) per annum, and sale of the interest to other Limited Partners or third parties at a discount.
+
+## 13. Indemnification
+The General Partner and its affiliates are indemnified by the Fund for liabilities arising in the ordinary course of fund management, except for liabilities arising from fraud, willful misconduct, or gross negligence.
